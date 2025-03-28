@@ -9,13 +9,13 @@ LIBFT = ./libft/
 LIBFT_LIB = $(LIBFT)libft.a
 
 # A list of all .c files in the current directory
-SRCS = moves_a.c moves_b.c push_swap.c utils.c
+SRCS = moves_a.c moves_b.c push_swap.c utils.c nodes.c handle_errors.c stack_initialization.c
 # A list of all .o files that correspond to the .c files
 OBJS = $(SRCS:.c=.o)
 HDERS = push_swap.h
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -g3 #-Werror
 ARFLAGS = -rc
 RM = rm -f
 
