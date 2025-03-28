@@ -6,13 +6,13 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:01:31 by dario             #+#    #+#             */
-/*   Updated: 2025/01/04 17:25:27 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/28 20:32:44 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_lst	*ft_lstlast(t_lst *lst)
 {
 	if (!lst)
 		return (NULL);

@@ -6,15 +6,15 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:05:14 by dario             #+#    #+#             */
-/*   Updated: 2025/01/04 17:24:55 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/28 20:32:44 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_lst **lst, t_lst *new)
 {
-	t_list	*node;
+	t_lst	*node;
 
 	if (!new)
 		return ;

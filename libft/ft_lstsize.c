@@ -6,13 +6,13 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:46:58 by dario             #+#    #+#             */
-/*   Updated: 2025/01/04 17:25:44 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/28 20:32:44 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_lst *lst)
 {
 	int		len;
 

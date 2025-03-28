@@ -6,15 +6,15 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:15:35 by dario             #+#    #+#             */
-/*   Updated: 2025/01/04 17:25:09 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/28 20:32:44 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_lst **lst, void (*del)(void *))
 {
-	t_list	*aux;
+	t_lst	*aux;
 
 	if (!lst)
 		return ;
