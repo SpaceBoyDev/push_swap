@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/03/30 18:26:08 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/30 18:29:24 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ int	main(int argc, char **argv)
 	print_stack(a, true);
 	if (is_stack_sorted(a))
 		error_free(&a, "Stack is already sorted");
+	free_stack(&a);
 	return (0);
 }

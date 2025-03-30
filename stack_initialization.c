@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:14:31 by dario             #+#    #+#             */
-/*   Updated: 2025/03/30 17:40:14 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/30 18:45:02 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,21 @@ void	init_stack_a(t_node **stack, char **argv)
 	while (argv[i])
 	{
 		if (!is_arg_valid(argv[i]))
+		{
+			free_split(argv);
 			error_free(stack, "Arguments must contain only digits");
-		n = ft_atoi(argv[i]);
+		}
+		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
+		{
+			free_split(argv);
 			error_free(stack, "Numbers must be inside int variable limits");
+		}
 		if (error_duplicate(*stack, (int)n))
+		{
+			free_split(argv);
 			error_free(stack, "There is a duplicated number");
+		}
 		append_node(stack, (int)n);
 		++i;
 	}

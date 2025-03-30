@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/03/30 18:12:27 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/30 18:44:55 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ t_node	*find_last_node(t_node *node);
 void	append_node(t_node **stack_node, int n);
 
 // Utils
+long	ft_atol(const char *nptr);
 bool	is_arg_valid(char *argv);
+
+// Free Variables
+void	free_split(char **split);
 
 // Handle Errors
 void	error_exit(const char *error_message);
