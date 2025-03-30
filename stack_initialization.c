@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:14:31 by dario             #+#    #+#             */
-/*   Updated: 2025/03/28 22:19:41 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/30 17:40:14 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	init_stack_a(t_node **stack, char **argv)
 int	*multiple_args(char **argv)
 {
 	int	i;
-	
+
 	i = 1;
 	while (argv[i])
 	{
@@ -84,4 +84,3 @@ int	*single_arg(char *argv)
 	ft_printf("Hay %d números\n", stack_len);
 	return (stack_numbers);
 }
-

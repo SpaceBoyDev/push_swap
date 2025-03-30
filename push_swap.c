@@ -6,19 +6,37 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/03/28 22:29:15 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/30 18:26:08 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_node *node)
+void	print_stack(t_node *node, bool simple_view)
 {
-	ft_printf("INDEX    |    VALUE\n");
-	ft_printf("---------|---------\n");
+	if (simple_view)
+	{
+		while (node)
+		{
+			ft_printf("\t%d\n", node->value);
+			node = node->next;
+		}
+		return ;
+	}
+	ft_printf("+-----------------------------------------------------+\n");
+	ft_printf("|    INDEX    |    VALUE    |    PREV    |    NEXT    |\n");
+	ft_printf("|-------------+-------------+------------+------------|\n");
 	while (node)
 	{
-		ft_printf("  %d\t |\t%d\n", node->index, node->value);
+		ft_printf("|      %d      |      %d      |", node->index, node->value);
+		if (node->prev)
+			ft_printf("      %d     |", node->prev->value);
+		else
+			ft_printf("    NULL    |");
+		if (node->next)
+			ft_printf("      %d     |\n", node->next->value);
+		else
+			ft_printf("    NULL    |\n");
 		node = node->next;
 	}
 }
@@ -36,6 +54,8 @@ int	main(int argc, char **argv)
 		init_stack_a(&a, ft_split(argv[1], ' '));
 	else
 		init_stack_a(&a, argv + 1);
-	print_stack(a);
+	print_stack(a, true);
+	if (is_stack_sorted(a))
+		error_free(&a, "Stack is already sorted");
 	return (0);
 }

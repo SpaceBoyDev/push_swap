@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/03/28 21:43:49 by dario            ###   ########.fr       */
+/*   Updated: 2025/03/30 18:12:27 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int		*single_arg(char *argv);
 int		*multiple_args(char **argv);
 
 // Node Utils
-t_node	*find_last(t_node *node);
+bool	is_stack_sorted(t_node *node);
+t_node	*find_last_node(t_node *node);
 void	append_node(t_node **stack_node, int n);
 
 // Utils
@@ -47,6 +48,5 @@ void	error_exit(const char *error_message);
 void	error_free(t_node **stack, const char *error_message);
 void	free_stack(t_node **stack);
 bool	error_duplicate(t_node *node, int n);
-
 
 #endif
