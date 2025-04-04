@@ -6,11 +6,18 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:14:31 by dario             #+#    #+#             */
-/*   Updated: 2025/03/30 18:45:02 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/04 20:38:40 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_error(t_node **stack, char **argv, char *msg, bool split)
+{
+	if (split)
+		free_split(argv);
+	error_free(stack, msg);
+}
 
 int	*fill_stack(char **numbers, int *len)
 {
@@ -39,7 +46,7 @@ int	*fill_stack(char **numbers, int *len)
 	return (stack_array);
 }
 
-void	init_stack_a(t_node **stack, char **argv)
+void	init_stack_a(t_node **stack, char **argv, bool split)
 {
 	size_t	i;
 	long	n;
@@ -48,21 +55,15 @@ void	init_stack_a(t_node **stack, char **argv)
 	while (argv[i])
 	{
 		if (!is_arg_valid(argv[i]))
-		{
-			free_split(argv);
-			error_free(stack, "Arguments must contain only digits");
-		}
+			init_error(stack, argv, "Arguments must contain only digits",
+				split);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-		{
-			free_split(argv);
-			error_free(stack, "Numbers must be inside int variable limits");
-		}
+			init_error(stack, argv, "Numbers must be in int variable limits",
+				split);
 		if (error_duplicate(*stack, (int)n))
-		{
-			free_split(argv);
-			error_free(stack, "There is a duplicated number");
-		}
+			init_error(stack, argv, "There is a duplicated number",
+				split);
 		append_node(stack, (int)n);
 		++i;
 	}

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/03/30 18:44:55 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/04 20:38:51 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_node
 }	t_node;
 
 // Stack Init
-void	init_stack_a(t_node **stack_node, char **argv);
+void	init_stack_a(t_node **stack, char **argv, bool split);
 int		*single_arg(char *argv);
 int		*multiple_args(char **argv);
 
