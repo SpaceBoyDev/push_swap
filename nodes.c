@@ -6,11 +6,26 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/03/30 18:17:05 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/07 20:45:25 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_size(t_node *node)
+{
+	int	size;
+
+	size = 0;
+	if (!node)
+		return (size);
+	while (node)
+	{
+		node = node->next;
+		++size;
+	}
+	return (size);
+}
 
 bool	is_stack_sorted(t_node *node)
 {
@@ -27,6 +42,15 @@ bool	is_stack_sorted(t_node *node)
 		node = node->next;
 	}
 	return (true);
+}
+
+t_node	*find_first_node(t_node *node)
+{
+	if (!node)
+		return (NULL);
+	while (node->prev != NULL)
+		node = node->prev;
+	return (node);
 }
 
 t_node	*find_last_node(t_node *node)

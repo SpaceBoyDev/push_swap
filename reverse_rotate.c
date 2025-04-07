@@ -1,29 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_variables.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/30 18:38:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/07 20:49:00 by dario            ###   ########.fr       */
+/*   Created: 2025/04/07 20:36:08 by dario             #+#    #+#             */
+/*   Updated: 2025/04/07 20:37:04 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_split(char **split)
-{
-	int	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		++i;
-	}
-	free(split);
-	split = NULL;
-}

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_variables.c                                   :+:      :+:    :+:   */
+/*   update_nodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/30 18:38:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/07 20:49:00 by dario            ###   ########.fr       */
+/*   Created: 2025/04/07 19:26:58 by dario             #+#    #+#             */
+/*   Updated: 2025/04/07 20:48:50 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **split)
+void	update_stack(t_node *node)
 {
-	int	i;
+	update_index(node);
+}
 
-	if (!split)
+void	update_index(t_node *node)
+{
+	int	n;
+
+	if (!node || node->prev != NULL)
 		return ;
-	i = 0;
-	while (split[i])
+	n = 0;
+	while (node)
 	{
-		free(split[i]);
-		++i;
+		node->index = n;
+		node = node->next;
+		++n;
 	}
-	free(split);
-	split = NULL;
 }
