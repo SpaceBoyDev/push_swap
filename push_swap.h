@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/08 19:31:04 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/08 20:02:36 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_node	*find_last_node(t_node *node);
 void	append_node(t_node **stack_node, int n);
 
 // Update Nodes
+void	update_stack(t_node *node);
 void	update_index(t_node *node);
 
 // Utils
