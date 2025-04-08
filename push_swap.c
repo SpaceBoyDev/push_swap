@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/04/08 19:36:03 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/08 19:53:31 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,11 @@ int	main(int argc, char **argv)
 	update_index(a);
 	print_stack(&a, false);
 	printf("Size del stack -> %d\n", stack_size(a));
-	move_single(&a, &moves, sa);
-	//move_dual(&a, &b, &moves, pb);
+	//move_single(&a, &moves, sa);
+	move_dual(&b, &a, &moves, pb);
 	printf("Size del stack -> %d\n", stack_size(a));
 	print_stack(&a, false);
+	print_stack(&b, false);
 
 	if (is_stack_sorted(a))
 		error_free(&a, "Stack is already sorted");

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:27:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/08 19:30:01 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/08 19:55:19 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ void	swap(t_node **stack)
 void	sa(t_node **stack)
 {
 	swap(stack);
-	ft_printf("sa\n");
+	ft_printf("%s\n", __func__);
 }
 
 void	sb(t_node **stack)
 {
 	swap(stack);
-	ft_printf("sb\n");
+	ft_printf("%s\n", __func__);
 }
 
 void	ss(t_node **a, t_node **b)
 {
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+	ft_printf("%s\n", __func__);
 }
