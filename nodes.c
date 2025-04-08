@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/04/07 20:45:25 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/08 20:23:09 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,26 +62,26 @@ t_node	*find_last_node(t_node *node)
 	return (node);
 }
 
-void	append_node(t_node **stack_node, int n)
+void	append_node(t_node **stack, int n)
 {
 	t_node	*node;
 	t_node	*last_node;
 
-	if (!stack_node)
+	if (!stack)
 		return ;
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return ;
 	node->next = NULL;
 	node->value = n;
-	if (!(*stack_node))
+	if (!(*stack))
 	{
-		*stack_node = node;
+		*stack = node;
 		node->prev = NULL;
 	}
 	else
 	{
-		last_node = find_last_node(*stack_node);
+		last_node = find_last_node(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}

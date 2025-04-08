@@ -6,47 +6,40 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:27:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/07 20:35:24 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/08 19:30:01 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_node *node)
+void	swap(t_node **stack)
 {
-	int	tmp;
-
-	if (!node)
+	if (!(*stack) || !(*stack)->next)
 		return ;
-	tmp = node->value;
-	node->value = node->next->value;
-	node->next->value = tmp;
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
+}
+
+void	sa(t_node **stack)
+{
+	swap(stack);
 	ft_printf("sa\n");
 }
 
-void	sb(t_node *node)
+void	sb(t_node **stack)
 {
-	int	tmp;
-
-	if (!node)
-		return ;
-	tmp = node->value;
-	node->value = node->next->value;
-	node->next->value = tmp;
+	swap(stack);
 	ft_printf("sb\n");
 }
 
-void	ss(t_node *a, t_node *b)
+void	ss(t_node **a, t_node **b)
 {
-	int	tmp;
-
-	if (!a || !b)
-		return ;
-	tmp = a->value;
-	a->value = a->next->value;
-	a->next->value = tmp;
-	tmp = b->value;
-	b->value = b->next->value;
-	b->next->value = tmp;
+	swap(a);
+	swap(b);
 	ft_printf("ss\n");
 }

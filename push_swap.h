@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/07 20:44:33 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/08 19:31:04 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,17 @@ int		*single_arg(char *argv);
 int		*multiple_args(char **argv);
 
 // Movements
-void	movement(t_node *stack, int *moves, void (*move)(struct s_node *));
-
+void	move_single(t_node **stack, int *moves, 
+			void (*move)(struct s_node **));
+void	move_dual(t_node **a, t_node **b, int *moves,
+			void (*move)(struct s_node **, struct s_node **));
 // Moves
-void	pa(t_node *a, t_node *b);
-void	pb(t_node *a, t_node *b);
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **a, t_node **b);
 
-void	sa(t_node *node);
-void	sb(t_node *node);
-void	ss(t_node *a, t_node *b);
+void	sa(t_node **node);
+void	sb(t_node **node);
+void	ss(t_node **a, t_node **b);
 
 void	ra(t_node *node);
 void	rb(t_node *node);
