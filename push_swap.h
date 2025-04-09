@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/08 20:02:36 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/09 19:02:36 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,18 @@ void	move_dual(t_node **a, t_node **b, int *moves,
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
 
-void	sa(t_node **node);
-void	sb(t_node **node);
+void	swap(t_node **stack);
+void	sa(t_node **stack);
+void	sb(t_node **stack);
 void	ss(t_node **a, t_node **b);
 
-void	ra(t_node *node);
-void	rb(t_node *node);
-void	rr(t_node *a, t_node *b);
+void	ra(t_node **stack);
+void	rb(t_node **stack);
+void	rr(t_node **a, t_node **b);
 
-void	rra(t_node *node);
-void	rrb(t_node *node);
-void	rrr(t_node *a, t_node *b);
+void	rra(t_node **stack);
+void	rrb(t_node **stack);
+void	rrr(t_node **a, t_node **b);
 
 // Node
 int		stack_size(t_node *node);

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/04/08 20:11:49 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/09 19:11:57 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,12 @@ int	main(int argc, char **argv)
 	}
 	else
 		init_stack_a(&a, argv + 1, false);
-	if (is_stack_sorted(a))
-		error_free(&a, "Stack is already sorted");
-	
+	// if (is_stack_sorted(a))
+	// 	error_free(&a, "Stack is already sorted");
+	//print_stack(&a, false);
+	move_single(&a, &moves, rra);
+	//print_stack(&a, false);
 	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
