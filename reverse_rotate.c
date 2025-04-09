@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:36:08 by dario             #+#    #+#             */
-/*   Updated: 2025/04/09 19:10:22 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/09 20:32:43 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	rev_rotate(t_node **stack)
 {
 	t_node	*tmp;
+
 	if (!(*stack) || !(*stack)->next)
 		return ;
 	if (stack_size(*stack) == 2)
