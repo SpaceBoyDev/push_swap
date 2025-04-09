@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:14:31 by dario             #+#    #+#             */
-/*   Updated: 2025/04/04 20:38:40 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/09 20:25:16 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	init_stack_a(t_node **stack, char **argv, bool split)
 		append_node(stack, (int)n);
 		++i;
 	}
+	update_stack(*stack);
 }
 
 int	*multiple_args(char **argv)
