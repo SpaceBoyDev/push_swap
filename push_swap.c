@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/04/09 20:24:39 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/09 20:52:16 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,34 @@ void	print_stack(t_node **stack, bool simple_view)
 		}
 		return ;
 	}
-	ft_printf("+------------------------------------------------------------------------------+\n");
-	ft_printf("|    INDEX    |    VALUE    |    PREV    |    NEXT    |   MEDIAN   |   CHEAP   |\n");
-	ft_printf("|-------------+-------------+------------+------------+------------+-----------|\n");
+	ft_printf("+-----------------------+-----------------------+-----------------------+");
+	ft_printf("-----------------------+-----------------------+--------------------+\n");
+	ft_printf("|\tINDEX\t\t|\tVALUE\t\t|\tPREV\t\t|\tNEXT\t\t|\tMEDIAN\t\t|\tCHEAP\t\t|\n");
+	ft_printf("+-----------------------+-----------------------+-----------------------+");
+	ft_printf("-----------------------+-----------------------+--------------------+\n");
 	while (current)
 	{
-		ft_printf("|      %d      |      %d      |", current->index, current->value);
+		ft_printf("|\t%d\t\t|\t%d\t\t|", current->index, current->value);
 		if (current->prev)
-			ft_printf("      %d     |", current->prev->value);
+			ft_printf("\t%d\t\t|", current->prev->value);
 		else
-			ft_printf("    NULL    |");
+			ft_printf("\tNULL\t\t|");
 		if (current->next)
-			ft_printf("      %d     |", current->next->value);
+			ft_printf("\t%d\t\t|", current->next->value);
 		else
-			ft_printf("    NULL    |");
+			ft_printf("\tNULL\t\t|");
 		if (current->above_median)
-			ft_printf("      ^     |");
+			ft_printf("\t^\t\t|");
 		else
-			ft_printf("      v     |");
+			ft_printf("\tv\t\t|");
 		if (current->cheapest)
-			ft_printf("    TRUE   |\n");
+			ft_printf("\tTRUE\t\t|\n");
 		else
-			ft_printf("    FALSE  |\n");
+			ft_printf("\tFALSE\t\t|\n");
 		current = current->next;
 	}
-	ft_printf("+------------------------------------------------------------------------------+\n\n");
+	ft_printf("+------------------------------------------------------------------------");
+	ft_printf("--------------------------------------------------------------------+\n\n");
 }
 
 void	check_move(t_node **a, t_node **b)
