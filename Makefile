@@ -9,9 +9,10 @@ LIBFT = ./libft/
 LIBFT_LIB = $(LIBFT)libft.a
 
 # A list of all .c files in the current directory
-SRCS = push_swap.c stack_initialization.c nodes.c utils.c \
+SRCS = push_swap.c algorithm.c stack_initialization.c nodes.c utils.c node_utils.c \
 	moves.c push.c swap.c rotate.c reverse_rotate.c \
-	handle_errors.c free_variables.c update_nodes.c
+	handle_errors.c free_variables.c update_nodes.c \
+	debug.c
 # A list of all .o files that correspond to the .c files
 OBJS = $(SRCS:.c=.o)
 HDERS = push_swap.h
@@ -31,9 +32,13 @@ CIAN = \e[7;36m
 # The default target - builds the project
 all: $(NAME)
 
+push:
+	make
+	./push_swap 20 99 0 25 -38 10 7 42
+
 # A rule to build the project from the .o files
 $(NAME): $(LIBFT_LIB) $(OBJS)
-	@echo "$(CIAN)Compiling $(NAME)$(BLUE)"
+	@echo "$(CIAN)Compiling $(NAME)$(COLOREND)"
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME) $(LIBFT_LIB)
 
 %.o: %.c
