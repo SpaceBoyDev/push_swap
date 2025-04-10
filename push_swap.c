@@ -6,61 +6,11 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/04/09 20:52:16 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/10 12:58:55 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_node **stack, bool simple_view)
-{
-	t_node	*current;
-
-	current = *stack;
-	if (simple_view)
-	{
-		while (current)
-		{
-			ft_printf("%d\n", current->value);
-			current = current->next;
-		}
-		return ;
-	}
-	ft_printf("+-----------------------+-----------------------+-----------------------+");
-	ft_printf("-----------------------+-----------------------+--------------------+\n");
-	ft_printf("|\tINDEX\t\t|\tVALUE\t\t|\tPREV\t\t|\tNEXT\t\t|\tMEDIAN\t\t|\tCHEAP\t\t|\n");
-	ft_printf("+-----------------------+-----------------------+-----------------------+");
-	ft_printf("-----------------------+-----------------------+--------------------+\n");
-	while (current)
-	{
-		ft_printf("|\t%d\t\t|\t%d\t\t|", current->index, current->value);
-		if (current->prev)
-			ft_printf("\t%d\t\t|", current->prev->value);
-		else
-			ft_printf("\tNULL\t\t|");
-		if (current->next)
-			ft_printf("\t%d\t\t|", current->next->value);
-		else
-			ft_printf("\tNULL\t\t|");
-		if (current->above_median)
-			ft_printf("\t^\t\t|");
-		else
-			ft_printf("\tv\t\t|");
-		if (current->cheapest)
-			ft_printf("\tTRUE\t\t|\n");
-		else
-			ft_printf("\tFALSE\t\t|\n");
-		current = current->next;
-	}
-	ft_printf("+------------------------------------------------------------------------");
-	ft_printf("--------------------------------------------------------------------+\n\n");
-}
-
-void	check_move(t_node **a, t_node **b)
-{
-	print_stack(a, false);
-	print_stack(b, false);
-}
 
 int	main(int argc, char **argv)
 {
@@ -81,9 +31,26 @@ int	main(int argc, char **argv)
 	}
 	else
 		init_stack_a(&a, argv + 1, false);
-	//move_single(&a, &moves, rra);
+	if (is_stack_sorted(a))
+		error_free(&a, "Stack is already sorted");
 	print_stack(&a, false);
+	move_dual(&a, &b, &moves, pb);
+	move_dual(&a, &b, &moves, pb);
+	print_stack(&b, false);
+
+	iterate_stack(a, b, set_target_node);
+	//set_target_node(a, b);
+	print_stack(&a, false);
+
+	// while (stack_size(a) > 3)
+	// {
+	// 	if (stack_size(b) < 2)
+	// 		move_dual(&a, &b, &moves, pb);
+	// 	else
+	// 		push_sort_b(&a, &b, &moves);
+	// }
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
 }
+
