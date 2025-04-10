@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/04/10 12:58:55 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/10 14:27:27 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ int	main(int argc, char **argv)
 	move_dual(&a, &b, &moves, pb);
 	print_stack(&b, false);
 
-	iterate_stack(a, b, set_target_node);
+	//iterate_stack_dual(a, b, set_target_node);
+	push_sort_b(&a, &b, &moves);
 	//set_target_node(a, b);
-	print_stack(&a, false);
+	//print_stack(&a, false);
 
 	// while (stack_size(a) > 3)
 	// {

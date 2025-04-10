@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/10 13:36:18 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/10 14:20:51 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		*multiple_args(char **argv);
 
 // Algorithm
 void	push_sort_b(t_node **a, t_node **b, int *moves);
-void	iterate_stack(t_node *a, t_node *b, void (*func)(t_node *, t_node *));
+void	iterate_stack_dual(t_node *a, t_node *b, void (*func)(t_node *, t_node *));
 
 // Movements
 void	move_single(t_node **stack, int *moves,
@@ -63,14 +63,15 @@ void	rra(t_node **stack);
 void	rrb(t_node **stack);
 void	rrr(t_node **a, t_node **b);
 
-// Node
+// Nodes
+void	set_cost_node(t_node *node);
 int		stack_size(t_node *node);
 bool	is_stack_sorted(t_node *node);
-t_node	*find_first_node(t_node *node);
-t_node	*find_last_node(t_node *node);
 void	append_node(t_node **stack_node, int n);
 
 // Node Utils
+t_node	*find_first_node(t_node *node);
+t_node	*find_last_node(t_node *node);
 t_node	*find_min_value(t_node *stack);
 t_node	*find_max_value(t_node *stack);
 

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/04/09 18:49:49 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/10 14:24:32 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,44 @@ bool	is_stack_sorted(t_node *node)
 	return (true);
 }
 
-t_node	*find_first_node(t_node *node)
+void	set_target_node(t_node *node, t_node *b)
 {
-	if (!node)
-		return (NULL);
-	while (node->prev != NULL)
-		node = node->prev;
-	return (node);
+	int		min_delta;
+	t_node	*tmp;
+	if (!node || !b)
+		return ;
+	min_delta = INT_MAX;
+	tmp = b;
+	while (b)
+	{
+		if (b->value < node->value && (node->value - b->value) < min_delta)
+		{
+			min_delta = node->value - b->value;
+			node->target = b;
+		}
+		b = b->next;
+	}
+	if (node->target)
+		return ;
+	node->target = find_max_value(find_first_node(tmp));
 }
 
-t_node	*find_last_node(t_node *node)
+void	set_cost_node(t_node *node)
 {
+	int	node_cost;
+	int	target_cost;
+
 	if (!node)
-		return (NULL);
-	while (node->next != NULL)
-		node = node->next;
-	return (node);
+		return ;
+	if (node->above_median)
+		node_cost = node->index;
+	else
+		node_cost = stack_size(find_first_node(node)) - node->index;
+	if (node->target->above_median)
+		target_cost = node->target->index;
+	else
+		target_cost = stack_size(find_first_node(node->target)) - node->target->index;
+	node->cost = node_cost + target_cost;
 }
 
 void	append_node(t_node **stack, int n)
