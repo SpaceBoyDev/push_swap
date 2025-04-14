@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:26:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 19:14:11 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:24:49 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ t_node	*set_cheapest(t_node *node)
 {
 	t_node	*tmp;
 	int		cheapest;
-	
+
 	if (!node)
 		return (NULL);
-
 	cheapest = node->cost;
 	tmp = node;
 	while (node)

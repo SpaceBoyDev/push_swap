@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:11 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 19:58:14 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:27:19 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int	main(int argc, char **argv)
 	if (is_stack_sorted(a))
 		error_free(&a, "Stack is already sorted");
 	turk_algo(&a, &b, &moves);
-
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
 }
-

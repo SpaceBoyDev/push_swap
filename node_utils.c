@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:57 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 21:17:05 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:25:07 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_node	*find_max_value(t_node *stack)
 {
 	int		max;
 	t_node	*tmp;
+
 	if (!stack)
 		return (NULL);
 	max = stack->value;

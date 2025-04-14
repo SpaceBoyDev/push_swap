@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 21:22:16 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:24:25 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int		*multiple_args(char **argv);
 
 // Algorithm
 void	turk_algo(t_node **a, t_node **b, int *moves);
-void	iterate_stack_dual(t_node *a, t_node *b, void (*func)(t_node *, t_node *));
+void	iterate_stack_dual(t_node *a, t_node *b,
+			void (*func)(t_node *, t_node *));
 
 // Movements
 void	move_single(t_node **stack, int *moves,

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:22 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 20:51:38 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:27:11 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	iterate_stack(t_node *stack, void (*func)(t_node *))
 void	sort_three(t_node **stack, int *moves)
 {
 	t_node	*max_value;
-	
+
 	if (is_stack_sorted(*stack))
 		return ;
 	max_value = find_max_value(*stack);
@@ -75,6 +75,7 @@ void	sort_three(t_node **stack, int *moves)
 void	push_sort_b(t_node **a, t_node **b, int *moves)
 {
 	t_node	*push_node;
+
 	while (stack_size(*a) > 3)
 	{
 		iterate_stack_dual(*a, *b, set_target_node_a);
@@ -97,11 +98,7 @@ void	push_sort_b(t_node **a, t_node **b, int *moves)
 		(*a)->cheapest = false;
 		move_dual(a, b, moves, pb);
 	}
-	print_stack(a, false);
-	print_stack(b, false);
 	sort_three(a, moves);
-	print_stack(a, false);
-	print_stack(b, false);
 }
 
 /** Turkish algorithm. Sorts stack a in the minimum number of moves possible

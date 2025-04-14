@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 21:22:44 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:26:25 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	set_target_node_a(t_node *node, t_node *b)
 {
 	int		min_delta;
 	t_node	*tmp;
+
 	if (!node || !b)
 		return ;
 	min_delta = INT_MAX;
@@ -97,9 +98,9 @@ void	set_cost_node(t_node *node)
 	if (node->target->above_median)
 		target_cost = node->target->index;
 	else
-		target_cost = stack_size(find_first_node(node->target)) - node->target->index;
+		target_cost = stack_size(find_first_node(node->target))
+			- node->target->index;
 	node->cost = node_cost + target_cost;
-	
 }
 
 /** @brief Appends a new node to the end of a stack
