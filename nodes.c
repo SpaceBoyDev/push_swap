@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/04/10 14:24:32 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 20:47:30 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	set_cost_node(t_node *node)
 	else
 		target_cost = stack_size(find_first_node(node->target)) - node->target->index;
 	node->cost = node_cost + target_cost;
+	
 }
 
 void	append_node(t_node **stack, int n)

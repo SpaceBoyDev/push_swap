@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/10 14:20:51 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 19:21:40 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		*single_arg(char *argv);
 int		*multiple_args(char **argv);
 
 // Algorithm
-void	push_sort_b(t_node **a, t_node **b, int *moves);
+void	turk_algo(t_node **a, t_node **b, int *moves);
 void	iterate_stack_dual(t_node *a, t_node *b, void (*func)(t_node *, t_node *));
 
 // Movements
@@ -76,6 +76,7 @@ t_node	*find_min_value(t_node *stack);
 t_node	*find_max_value(t_node *stack);
 
 // Update Nodes
+t_node	*set_cheapest(t_node *node);
 void	set_target_node(t_node *node, t_node *b);
 void	update_stack(t_node *node);
 

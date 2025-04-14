@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:26:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/10 14:10:38 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 19:14:11 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,28 @@ static void	update_median(t_node *node)
 	}
 }
 
-static void	update_cheapest(t_node *node)
+t_node	*set_cheapest(t_node *node)
 {
 	t_node	*tmp;
 	int		cheapest;
+	
+	if (!node)
+		return (NULL);
 
-	cheapest = node->value;
+	cheapest = node->cost;
+	tmp = node;
 	while (node)
 	{
-		if (node->value <= cheapest)
+		if (node->cost < cheapest)
 		{
-			cheapest = node->value;
+			cheapest = node->cost;
 			tmp = node;
 		}
 		node->cheapest = false;
 		node = node->next;
 	}
 	tmp->cheapest = true;
+	return (tmp);
 }
 
 static void	update_index(t_node *node)
@@ -65,5 +70,4 @@ void	update_stack(t_node *node)
 		return ;
 	update_index(node);
 	update_median(node);
-	update_cheapest(node);
 }
