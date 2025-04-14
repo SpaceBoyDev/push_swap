@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:22 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 00:23:14 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 00:29:02 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,10 @@ void	turk_algo(t_node **a, t_node **b, int *moves)
 {
 	t_node	*min_value;
 
+	if (stack_size(*a) == 3)
+		sort_three(a, moves);
+	else if (stack_size(*a) == 2)
+		move_single(a, moves, sa);
 	while (stack_size(*b) != 2 && stack_size(*a) > 3)
 		move_dual(a, b, moves, pb);
 	push_sort_b(a, b, moves);
