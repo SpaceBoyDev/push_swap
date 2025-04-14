@@ -6,32 +6,11 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 01:58:41 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 00:20:21 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/** @brief Calculates the size of the given stack
- * 
- * Starting from the given `node`, it calculates the size of its stack
- * @param node Node from where it starts
- * @return Size of the stack
- */
-int	stack_size(t_node *node)
-{
-	int	size;
-
-	size = 0;
-	if (!node)
-		return (size);
-	while (node)
-	{
-		node = node->next;
-		++size;
-	}
-	return (size);
-}
 
 /** @brief Checks if the given stack is sorted
  * @param Node from where it starts to check

@@ -6,11 +6,32 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:57 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 01:38:07 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 00:20:31 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/** @brief Calculates the size of the given stack
+ * 
+ * Starting from the given `node`, it calculates the size of its stack
+ * @param node Node from where it starts
+ * @return Size of the stack
+ */
+int	stack_size(t_node *node)
+{
+	int	size;
+
+	size = 0;
+	if (!node)
+		return (size);
+	while (node)
+	{
+		node = node->next;
+		++size;
+	}
+	return (size);
+}
 
 /** @brief Finds the first node of a given stack.
  * 
@@ -46,6 +67,7 @@ t_node	*find_min_value(t_node *stack)
 {
 	int		lowest;
 	t_node	*tmp;
+
 	if (!stack)
 		return (NULL);
 	lowest = stack->value;

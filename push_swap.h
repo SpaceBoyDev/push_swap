@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 01:40:54 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 00:09:45 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	free_stack(t_node **stack);
 bool	error_duplicate(t_node *node, int n);
 
 // DEBUG
+char	**generate_unique_random_numbers(int count);
 void	print_stack(t_node **stack, bool simple_view);
 void	check_move(t_node **a, t_node **b, bool simple_view);
 

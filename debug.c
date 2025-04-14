@@ -6,11 +6,60 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:52:41 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 20:31:09 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 00:09:37 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+bool	is_unique(int *arr, int size, int num)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == num)
+			return false;
+	}
+	return true;
+}
+
+char	**generate_unique_random_numbers(int count)
+{
+	int		*numbers;
+	char	**result;
+	int		i = 0;
+
+	if (count <= 0)
+		return NULL;
+	numbers = malloc(sizeof(int) * count);
+	if (!numbers)
+		return NULL;
+	result = malloc(sizeof(char *) * (count + 1));
+	if (!result)
+	{
+		free(numbers);
+		return NULL;
+	}
+	srand(time(NULL));
+	while (i < count)
+	{
+		int num = (rand() % (INT_MAX + INT_MAX + 1)) - INT_MAX;
+		if (is_unique(numbers, i, num))
+		{
+			numbers[i] = num;
+			asprintf(&result[i], "%d", num);
+			i++;
+		}
+	}
+	result[count] = NULL;
+	free(numbers);
+	return result;
+}
+
 /** Prints the stack and some of its values in a table.
  * Prints the index, value, prev, next, median and cheap values.
  * @param stack The stack that is going to be printed
