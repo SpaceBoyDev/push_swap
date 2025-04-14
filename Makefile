@@ -4,7 +4,7 @@ NAME = push_swap
 VAL = valgrind
 VALFLAGS = #--leak-check=full --show-leak-kinds=all
 
-# Makefile flags
+# Libft
 LIBFT = ./libft/
 LIBFT_LIB = $(LIBFT)libft.a
 
@@ -14,6 +14,7 @@ SRCS = push_swap.c algorithm.c stack_initialization.c nodes.c utils.c node_utils
 	handle_errors.c free_variables.c update_nodes.c \
 	debug.c
 # A list of all .o files that correspond to the .c files
+OBJS_DIR = ./objs/
 OBJS = $(SRCS:.c=.o)
 HDERS = push_swap.h
 
@@ -34,7 +35,7 @@ all: $(NAME)
 
 push:
 	make
-	./push_swap 20 99 0 25 -38 10 7 42
+	./push_swap 99 0 25 -38 10 7 42
 
 # A rule to build the project from the .o files
 $(NAME): $(LIBFT_LIB) $(OBJS)
