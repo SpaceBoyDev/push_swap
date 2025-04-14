@@ -6,12 +6,18 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 18:22:59 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 20:47:30 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:22:44 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/** @brief Calculates the size of the given stack
+ * 
+ * Starting from the given `node`, it calculates the size of its stack
+ * @param node Node from where it starts
+ * @return Size of the stack
+ */
 int	stack_size(t_node *node)
 {
 	int	size;
@@ -27,6 +33,10 @@ int	stack_size(t_node *node)
 	return (size);
 }
 
+/** @brief Checks if the given stack is sorted
+ * @param Node from where it starts to check
+ * @return True if the stack is sorted. False if it isn't
+ */
 bool	is_stack_sorted(t_node *node)
 {
 	int	n;
@@ -44,7 +54,11 @@ bool	is_stack_sorted(t_node *node)
 	return (true);
 }
 
-void	set_target_node(t_node *node, t_node *b)
+/** @brief Sets the target node of a given node of the stack a
+ * @param node Node that it's going to have its target set
+ * @param b Used to check target candidate nodes
+ */
+void	set_target_node_a(t_node *node, t_node *b)
 {
 	int		min_delta;
 	t_node	*tmp;
@@ -66,6 +80,9 @@ void	set_target_node(t_node *node, t_node *b)
 	node->target = find_max_value(find_first_node(tmp));
 }
 
+/** @brief Sets the push cost of a given node
+ * @param node Node that is going to have it's push cost calculated
+ */
 void	set_cost_node(t_node *node)
 {
 	int	node_cost;
@@ -85,6 +102,10 @@ void	set_cost_node(t_node *node)
 	
 }
 
+/** @brief Appends a new node to the end of a stack
+ * @param stack Stack that the new node is going to be appended to
+ * @param n Value that it's going to have the new node
+ */
 void	append_node(t_node **stack, int n)
 {
 	t_node	*node;

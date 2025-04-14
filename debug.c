@@ -6,12 +6,16 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:52:41 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 19:57:39 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 20:31:09 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/** Prints the stack and some of its values in a table.
+ * Prints the index, value, prev, next, median and cheap values.
+ * @param stack The stack that is going to be printed
+ * @param simple_view Whether it's going to be printed in a table or not
+*/
 void	print_stack_old(t_node **stack, bool simple_view)
 {
 	t_node	*current;
@@ -56,6 +60,11 @@ void	print_stack_old(t_node **stack, bool simple_view)
 	ft_printf("--------------------------------------------------------------------+\n\n");
 }
 
+/** Prints the stack and some of its values in a table.
+ * Prints index, value, target, cost, median and cheap values.
+* @param stack The stack that is going to be printed
+* @param simple_view Whether it's going to be printed in a table or not
+*/
 void	print_stack(t_node **stack, bool simple_view)
 {
 	t_node	*current;

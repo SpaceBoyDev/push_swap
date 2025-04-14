@@ -6,12 +6,18 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:57 by dario             #+#    #+#             */
-/*   Updated: 2025/04/10 14:10:00 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/14 21:17:05 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/** @brief Finds the first node of a given stack.
+ * 
+ * Starting from the given node, it finds the first node of its stack
+ * @param node Node from where it's going to start
+ * @return The first node of the stack
+*/
 t_node	*find_first_node(t_node *node)
 {
 	if (!node)
@@ -21,6 +27,12 @@ t_node	*find_first_node(t_node *node)
 	return (node);
 }
 
+/** @brief Finds the last node of a given stack.
+ * 
+ * Starting from the given node, it finds the last node of its stack
+ * @param node Node from where it's going to start
+ * @return The last node of the stack
+*/
 t_node	*find_last_node(t_node *node)
 {
 	if (!node)
@@ -49,6 +61,12 @@ t_node	*find_last_node(t_node *node)
 // 	return (tmp);
 // }
 
+/** @brief Finds the highest value node of a given stack.
+ * 
+ * Starting from the given node, it finds the highest value node of its stack
+ * @param node Node from where it's going to start
+ * @return The highest value node of the stack
+*/
 t_node	*find_max_value(t_node *stack)
 {
 	int		max;
