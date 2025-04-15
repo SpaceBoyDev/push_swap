@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:22 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 21:27:11 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 02:01:56 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,45 @@ void	sort_three(t_node **stack, int *moves)
 		move_single(stack, moves, sa);
 }
 
+/** Final part of the turk algorithm. Sets the target of each node of b and
+ * calculates its push cost. The cheapest node to push and its target are
+ * moved to the top of their respective stack. When both are on top, it pushes
+ * the first node of stack b to stack a until b is empty.
+ * @param a Stack a
+ * @param b Stack b
+ * @param moves Numbers of moves done
+ */
+void	push_sort_a(t_node **a, t_node **b, int *moves)
+{
+	t_node	*push_node;
+
+	while (stack_size(*b) > 0)
+	{
+		iterate_stack_dual(*b, *a, set_target_node_b);
+		iterate_stack(*b, set_cost_node);
+		push_node = set_cheapest(*b);
+		print_stack(a, false);
+		print_stack(b, false);
+		while (push_node->index != 0)
+		{
+			if (push_node->above_median)
+				move_single(b, moves, rb);
+			else
+				move_single(b, moves, rrb);
+		}
+		while (push_node->target->index != 0)
+		{
+			if (push_node->target->above_median)
+				move_single(a, moves, ra);
+			else
+				move_single(a, moves, rra);
+		}
+		(*b)->cheapest = false;
+		move_dual(a, b, moves, pa);
+	}
+	//sort_three(a, moves);
+}
+
 /** Initial part of the turk algorithm. Sets the target of each node of a and
  * calculates its push cost. The cheapest node to push and its target are
  * moved to the top of their respective stack. When both are on top, it pushes
@@ -108,8 +147,22 @@ void	push_sort_b(t_node **a, t_node **b, int *moves)
 */
 void	turk_algo(t_node **a, t_node **b, int *moves)
 {
+	t_node	*min_value;
 	while (stack_size(*b) != 2 && stack_size(*a) > 3)
 		move_dual(a, b, moves, pb);
 	push_sort_b(a, b, moves);
+	push_sort_a(a, b, moves);
+	print_stack(a, false);
+	print_stack(b, false);
+	min_value = find_min_value(*a);
+	while (min_value->index != 0)
+	{
+		if (min_value->above_median)
+			move_single(a, moves, ra);
+		else
+			move_single(a, moves, rra);
+	}
+	print_stack(a, false);
+	print_stack(b, false);
 	ft_printf("Moves -> %i\n", *moves);
 }

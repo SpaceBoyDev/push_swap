@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:57 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 21:25:07 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 01:38:07 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,24 @@ t_node	*find_last_node(t_node *node)
 	return (node);
 }
 
-// t_node	*find_min_value(t_node *stack)
-// {
-// 	int		lowest;
-// 	t_node	*tmp;
-// 	if (!stack)
-// 		return (NULL);
-// 	lowest = stack->value;
-// 	while (stack)
-// 	{
-// 		if (stack->value <= lowest)
-// 		{
-// 			lowest = stack->value;
-// 			tmp = stack;
-// 		}
-// 		stack = stack->next;
-// 	}
-// 	return (tmp);
-// }
+t_node	*find_min_value(t_node *stack)
+{
+	int		lowest;
+	t_node	*tmp;
+	if (!stack)
+		return (NULL);
+	lowest = stack->value;
+	while (stack)
+	{
+		if (stack->value <= lowest)
+		{
+			lowest = stack->value;
+			tmp = stack;
+		}
+		stack = stack->next;
+	}
+	return (tmp);
+}
 
 /** @brief Finds the highest value node of a given stack.
  * 
