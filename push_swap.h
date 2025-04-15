@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 00:09:45 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 02:11:43 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int		*multiple_args(char **argv);
 
 // Algorithm
 void	turk_algo(t_node **a, t_node **b, int *moves);
-void	iterate_stack_dual(t_node *a, t_node *b,
-			void (*func)(t_node *, t_node *));
 
 // Movements
 void	move_single(t_node **stack, int *moves,
@@ -83,6 +81,10 @@ void	set_target_node_b(t_node *node, t_node *a);
 void	update_stack(t_node *node);
 
 // Utils
+void	iterate_stack_dual(t_node *a, t_node *b,
+	void (*func)(t_node *, t_node *));
+void	iterate_stack(t_node *stack, void (*func)(t_node *));
+
 long	ft_atol(const char *nptr);
 bool	is_arg_valid(char *argv);
 
@@ -96,7 +98,6 @@ void	free_stack(t_node **stack);
 bool	error_duplicate(t_node *node, int n);
 
 // DEBUG
-char	**generate_unique_random_numbers(int count);
 void	print_stack(t_node **stack, bool simple_view);
 void	check_move(t_node **a, t_node **b, bool simple_view);
 
