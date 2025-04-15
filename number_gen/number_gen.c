@@ -19,6 +19,7 @@ bool existe(int array[], int tamaño, int num) {
 int main() {
     int cantidad;
     int repeat;
+    int over_limit = 0;
 
     printf("¿Cuántos números aleatorios únicos deseas generar? ");
     scanf("%d", &cantidad);
@@ -39,7 +40,7 @@ int main() {
             return 1;
         }
 
-        srand(time(NULL)); // Semilla basada en el tiempo
+        srand(time(NULL) + getpid()); // Semilla basada en el tiempo
 
         int generados = 0;
         while (generados < cantidad) {
@@ -66,12 +67,16 @@ int main() {
         }
 
         char comando[100000]; // Asegúrate de que tenga suficiente espacio
+        write(1, "Mi push_swap -> ", 17);
         snprintf(comando, sizeof(comando), ".././push_swap \"%s\" | wc -l", resultado);
         system(comando);
         snprintf(comando, sizeof(comando), ".././push_swap \"%s\" | .././checker_linux \"%s\"", resultado, resultado);
         system(comando);
+        write(1, "Anternativo -> ", 16);
+        snprintf(comando, sizeof(comando), "./push_swap \"%s\" | wc -l", resultado);
+        system(comando);
 
-        write(1, "-----------\n", 13);
+        write(1, "----------------------------\n", 30);
 
         free(numeros);
         repeat--;

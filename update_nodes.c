@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:26:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 03:21:14 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 20:41:35 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	update_median(t_node *node)
 	median = stack_size(node) / 2;
 	while (node)
 	{
-		if (node->index < median)
+		if (node->index <= median)
 			node->above_median = true;
 		else
 			node->above_median = false;
