@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:54:58 by dario             #+#    #+#             */
-/*   Updated: 2025/04/14 21:08:48 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 03:09:25 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,56 @@ void	move_dual(t_node **a, t_node **b, int *moves,
 	++(*moves);
 	update_stack(*a);
 	update_stack(*b);
+}
+
+void	select_move_a(t_node **a, t_node **b, t_node *push_node, int *moves)
+{
+	while (push_node->index != 0 && push_node->target->index != 0
+		&& push_node->above_median == push_node->target->above_median)
+	{
+		if (push_node->above_median)
+			move_dual(a, b, moves, rr);
+		else if (!push_node->above_median)
+			move_dual(a, b, moves, rrr);
+	}
+	while (push_node->index != 0)
+	{
+		if (push_node->above_median)
+			move_single(b, moves, rb);
+		else
+			move_single(b, moves, rrb);
+	}
+	while (push_node->target->index != 0)
+	{
+		if (push_node->target->above_median)
+			move_single(a, moves, ra);
+		else
+			move_single(a, moves, rra);
+	}
+}
+
+void	select_move_b(t_node **a, t_node **b, t_node *push_node, int *moves)
+{
+	while (push_node->index != 0
+		&& push_node->above_median == push_node->target->above_median)
+	{
+		if (push_node->above_median)
+			move_dual(a, b, moves, rr);
+		else if (!push_node->above_median)
+			move_dual(a, b, moves, rrr);
+	}
+	while (push_node->index != 0)
+	{
+		if (push_node->above_median)
+			move_single(a, moves, ra);
+		else
+			move_single(a, moves, rra);
+	}
+	while (push_node->target->index != 0)
+	{
+		if (push_node->target->above_median)
+			move_single(b, moves, rb);
+		else
+			move_single(b, moves, rrb);
+	}
 }

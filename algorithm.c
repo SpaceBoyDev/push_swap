@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:22 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 02:54:46 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 03:09:40 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,43 +50,8 @@ void	push_sort_a(t_node **a, t_node **b, int *moves)
 		push_node = set_cheapest(*b);
 		if (push_node->index != 0 || push_node->target->index != 0)
 		{
-			while (push_node->index != 0 && push_node->target->index != 0
-				&& push_node->above_median == push_node->target->above_median)
-			{
-				if (push_node->above_median && push_node->target->above_median)
-					move_dual(a, b, moves, rr);
-				else if (!push_node->above_median && !push_node->target->above_median)
-					move_dual(a, b, moves, rrr);
-			}
-			while (push_node->index != 0)
-			{
-				if (push_node->above_median)
-					move_single(b, moves, rb);
-				else
-					move_single(b, moves, rrb);
-			}
-			while (push_node->target->index != 0)
-			{
-				if (push_node->target->above_median)
-					move_single(a, moves, ra);
-				else
-					move_single(a, moves, rra);
-			}
+			select_move_a(a, b, push_node, moves);
 		}
-		// while (push_node->index != 0)
-		// {
-		// 	if (push_node->above_median)
-		// 		move_single(b, moves, rb);
-		// 	else
-		// 		move_single(b, moves, rrb);
-		// }
-		// while (push_node->target->index != 0)
-		// {
-		// 	if (push_node->target->above_median)
-		// 		move_single(a, moves, ra);
-		// 	else
-		// 		move_single(a, moves, rra);
-		// }
 		(*b)->cheapest = false;
 		move_dual(a, b, moves, pa);
 	}
@@ -111,44 +76,8 @@ void	push_sort_b(t_node **a, t_node **b, int *moves)
 		push_node = set_cheapest(*a);
 		if (push_node->index != 0 || push_node->target->index != 0)
 		{
-			while (push_node->index != 0 && push_node->target->index != 0
-				&& push_node->above_median == push_node->target->above_median)
-			{
-				if (push_node->above_median && push_node->target->above_median)
-					move_dual(a, b, moves, rr);
-				else if (!push_node->above_median && !push_node->target->above_median)
-					move_dual(a, b, moves, rrr);
-			}
-			while (push_node->index != 0)
-			{
-				if (push_node->above_median)
-					move_single(a, moves, ra);
-				else
-					move_single(a, moves, rra);
-			}
-			while (push_node->target->index != 0)
-			{
-				if (push_node->target->above_median)
-					move_single(b, moves, rb);
-				else
-					move_single(b, moves, rrb);
-			}
+			select_move_b(a, b, push_node, moves);
 		}
-
-		// while (push_node->index != 0)
-		// {
-		// 	if (push_node->above_median)
-		// 		move_single(a, moves, ra);
-		// 	else
-		// 		move_single(a, moves, rra);
-		// }
-		// while (push_node->target->index != 0)
-		// {
-		// 	if (push_node->target->above_median)
-		// 		move_single(b, moves, rb);
-		// 	else
-		// 		move_single(b, moves, rrb);
-		// }
 		(*a)->cheapest = false;
 		move_dual(a, b, moves, pb);
 	}

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 02:11:43 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 03:08:49 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	move_single(t_node **stack, int *moves,
 			void (*move)(struct s_node **));
 void	move_dual(t_node **a, t_node **b, int *moves,
 			void (*move)(struct s_node **, struct s_node **));
+void	select_move_a(t_node **a, t_node **b, t_node *push_node, int *moves);
+void	select_move_b(t_node **a, t_node **b, t_node *push_node, int *moves);
+
 // Moves
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
@@ -82,7 +85,7 @@ void	update_stack(t_node *node);
 
 // Utils
 void	iterate_stack_dual(t_node *a, t_node *b,
-	void (*func)(t_node *, t_node *));
+			void (*func)(t_node *, t_node *));
 void	iterate_stack(t_node *stack, void (*func)(t_node *));
 
 long	ft_atol(const char *nptr);
