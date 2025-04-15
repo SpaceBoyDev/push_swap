@@ -5,8 +5,8 @@
 			"name": "(lldb)",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/push_swap",
-			"args": ["99 0 25 -38 10 7 42 6978 097 567 356 093 467 3245 346 67 786987 89 8"],
+			"program": "${workspaceFolder}/a.out",
+			"args": ["99"],
 			"cwd": "${workspaceFolder}"
 		}
 	],
