@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:27:22 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 03:09:40 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 03:17:17 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @param stack Stack that is going to be sorted
  * @param moves Total number of moves
  */
-void	sort_three(t_node **stack, int *moves)
+static void	sort_three(t_node **stack, int *moves)
 {
 	t_node	*max_value;
 
@@ -39,7 +39,7 @@ void	sort_three(t_node **stack, int *moves)
  * @param b Stack b
  * @param moves Numbers of moves done
  */
-void	push_sort_a(t_node **a, t_node **b, int *moves)
+static void	push_sort_a(t_node **a, t_node **b, int *moves)
 {
 	t_node	*push_node;
 
@@ -65,7 +65,7 @@ void	push_sort_a(t_node **a, t_node **b, int *moves)
  * @param b Stack b
  * @param moves Numbers of moves done
  */
-void	push_sort_b(t_node **a, t_node **b, int *moves)
+static void	push_sort_b(t_node **a, t_node **b, int *moves)
 {
 	t_node	*push_node;
 

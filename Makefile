@@ -19,7 +19,7 @@ OBJS = $(SRCS:.c=.o)
 HDERS = push_swap.h
 
 CC = cc
-CFLAGS = -Wall -Wextra -g3 #-Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 ARFLAGS = -rc
 RM = rm -f
 

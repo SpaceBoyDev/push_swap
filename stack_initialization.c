@@ -6,20 +6,20 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 20:14:31 by dario             #+#    #+#             */
-/*   Updated: 2025/04/09 23:43:27 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 03:16:48 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_error(t_node **stack, char **argv, char *msg, bool split)
+static void	init_error(t_node **stack, char **argv, char *msg, bool split)
 {
 	if (split)
 		free_split(argv);
 	error_free(stack, msg);
 }
 
-int	*fill_stack(char **numbers, int *len)
+static int	*fill_stack(char **numbers, int *len)
 {
 	int		*stack_array;
 	size_t	count;
@@ -70,19 +70,6 @@ void	init_stack_a(t_node **stack, char **argv, bool split)
 	update_stack(*stack);
 }
 
-int	*multiple_args(char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (argv[i])
-	{
-		is_arg_valid(argv[i]);
-		++i;
-	}
-	return (fill_stack(argv, &i));
-}
-
 int	*single_arg(char *argv)
 {
 	char	**stack;
@@ -94,4 +81,17 @@ int	*single_arg(char *argv)
 	stack_numbers = fill_stack(stack, &stack_len);
 	ft_printf("Hay %d números\n", stack_len);
 	return (stack_numbers);
+}
+
+int	*multiple_args(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		is_arg_valid(argv[i]);
+		++i;
+	}
+	return (fill_stack(argv, &i));
 }

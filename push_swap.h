@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:47:54 by dario             #+#    #+#             */
-/*   Updated: 2025/04/15 03:08:49 by dario            ###   ########.fr       */
+/*   Updated: 2025/04/15 03:24:02 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,14 @@ void	rrb(t_node **stack);
 void	rrr(t_node **a, t_node **b);
 
 // Nodes
-void	set_cost_node(t_node *node);
-int		stack_size(t_node *node);
 bool	is_stack_sorted(t_node *node);
+void	set_target_node_a(t_node *node, t_node *b);
+void	set_target_node_b(t_node *node, t_node *a);
+void	set_cost_node(t_node *node);
 void	append_node(t_node **stack_node, int n);
 
 // Node Utils
+int		stack_size(t_node *node);
 t_node	*find_first_node(t_node *node);
 t_node	*find_last_node(t_node *node);
 t_node	*find_min_value(t_node *stack);
@@ -79,29 +81,25 @@ t_node	*find_max_value(t_node *stack);
 
 // Update Nodes
 t_node	*set_cheapest(t_node *node);
-void	set_target_node_a(t_node *node, t_node *b);
-void	set_target_node_b(t_node *node, t_node *a);
 void	update_stack(t_node *node);
 
 // Utils
 void	iterate_stack_dual(t_node *a, t_node *b,
 			void (*func)(t_node *, t_node *));
 void	iterate_stack(t_node *stack, void (*func)(t_node *));
-
-long	ft_atol(const char *nptr);
 bool	is_arg_valid(char *argv);
+long	ft_atol(const char *nptr);
 
 // Free Variables
 void	free_split(char **split);
+void	free_stack(t_node **stack);
 
 // Handle Errors
 void	error_exit(const char *error_message);
 void	error_free(t_node **stack, const char *error_message);
-void	free_stack(t_node **stack);
 bool	error_duplicate(t_node *node, int n);
 
 // DEBUG
 void	print_stack(t_node **stack, bool simple_view);
-void	check_move(t_node **a, t_node **b, bool simple_view);
 
 #endif
